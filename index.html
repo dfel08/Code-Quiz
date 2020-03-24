@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
     <link href="style.css">
 </head>
 <body>
+    <div>
+        <h4 class="time"></h4>
+    </div>
     <a href="highscores.html">View Highscores</a>
     <button id="start">Start</button>
-    <div id="content">
+    <div id="content" style="visibility: hidden;">
+        <p id="questionDisplay"></p>
+        <div class="answersDisplay">
+            <button id="button0"><span id="answerDisplay0"></span></button>
+            <button id="button1"><span id="answerDisplay1"></span></button>
+            <button id="button2"><span id="answerDisplay2"></span></button>
+            <button id="button3"><span id="answerDisplay3"></span></button>
+        </div>
     </div>
+
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
