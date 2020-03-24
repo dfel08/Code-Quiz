@@ -52,5 +52,14 @@ var questions = [
     }
 ]
 
+for (var i = 0; i < questions.length; i++) {
+    function startQuiz() {
+        $("div").append(questions[i]);
+        
+    }
+    document.getElementById("start").addEventListener("click", startQuiz);
+}
+//not working
+
 
 
