@@ -7,7 +7,7 @@ var answerDisplay0 = document.querySelector("#answerDisplay0");
 var answerDisplay1 = document.querySelector("#answerDisplay1");
 var answerDisplay2 = document.querySelector("#answerDisplay2");
 var answerDisplay3 = document.querySelector("#answerDisplay3");
-var index = 3;
+var index = 0;
 var secondsRemaining = 25;
 var questions = [
     {
@@ -18,17 +18,17 @@ var questions = [
             c: "Johann Sebastion Bach",
             d: "Ludwig van Beethoven"
         },
-        correctAnswer: "d"
+        correctAnswer: "Ludwig van Beethoven"
     },
     {
-        question: "Who is Ash Ketchum's favorite pet?",
+        question: "Who is Ash Ketchum's favorite Pokemon?",
         answers: {
             a: "Picachoo",
             b: "Pikachoo",
             c: "Picachu",
             d: "Pikachu"
         },
-        correctAnswer: "d"
+        correctAnswer: "Pikachu"
     },
     {
         question: "Who invented the toilet?",
@@ -38,7 +38,7 @@ var questions = [
             c: "Joseph Bramah",
             d: "All of the above"
         },
-        correctAnswer: "d"
+        correctAnswer: "All of the above"
     },
     {
         question: "Who is Geralt?",
@@ -48,7 +48,7 @@ var questions = [
             c: "A fish",
             d: "A mutant"
         },
-        correctAnswer: "d"
+        correctAnswer: "A mutant"
     },
     {
         question: "Is the world round?",
@@ -58,7 +58,7 @@ var questions = [
             c: "There's an ice wall on the edge of the world, it's flat.",
             d: "BLASPHEMY!!!",
         },
-        correctAnswer: "d"
+        correctAnswer: "BLASPHEMY!!!"
         //tehe
     }
 ]
@@ -77,56 +77,60 @@ function setTime() {
 start.addEventListener("click", function (event) {
     event.preventDefault();
     document.getElementById("start").style.visibility = "hidden";
-    document.getElementById("questionDisplay").style.visibility = "visible";
+    document.getElementById("content").style.visibility = "visible";
     setTime();
     quiz(index);
 });
 console.log(Object.values(questions[0].answers))
-function quiz() {
-    questionDisplay.textContent = questions[0].question;
-    var answersArray = [
-        answerDisplay0.textContent = questions[0].answers,
-        answerDisplay1.textContent = questions[1].answers,
-        answerDisplay2.textContent = questions[2].answers,
-        answerDisplay3.textContent = questions[3].answers
-    ];
+function quiz(index) {//check
+    questionDisplay.textContent = questions[index].question;
+    // var answersArray = [
+        answerDisplay0.textContent = questions[index].answers.a,
+        answerDisplay1.textContent = questions[index].answers.b,
+        answerDisplay2.textContent = questions[index].answers.c,
+        answerDisplay3.textContent = questions[index].answers.d
+    // ];
     checkAnswer();
 
-    for (var i = 0; i < answersArray.length; i++) {
-        if (i < questions.length) {
-            quiz()
-        } else {
-            endQuiz()
-        }
-    }
+    // for (var i = 0; i < answersArray.length; i++) {
+    //     if (i < questions.length) {
+    //         //check
+    //     } else {
+    //         endQuiz()
+    //     }
+    // }
 
-
+}
    
     
-    if ((questions.correctAnswer) != "d") {
-        secondsLeft -= -10
-        } else {
-        console.log(question.correctAnswer)
-        }
-    }
+
     
     
     
-    function checkAnswer() {
-      answersDisplay.addEventListener("click", function () {
-        console.log("check answer clicked")
+function checkAnswer() {
+    answersDisplay.addEventListener("click", function () {
+
         var userSelection = event.target;
-        if (userSelection !== questions[index].correctAnswer) {
-          secondsLeft -= -10
+        if (userSelection.textContent !== questions[index].correctAnswer) {
+          secondsRemaining -= 5;
+
         } else {
           console.log("correct answer");
+          
         }
+       //check if there's a next question.
+            //if yes, 
+                //increase index
+                //then render next question
+        //if no, then endGame
       });
     } 
-    
+   
     
     function endGame() {
-    }
+    }   //enter initials for score 
+    //display score
+    //use localStorage to keep track of scores
 
 
 // for (var i = 0; i < questions.length; i++) {
