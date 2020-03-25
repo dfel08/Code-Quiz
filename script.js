@@ -57,7 +57,7 @@ start.addEventListener("click", function (event) {
     quiz(index);
 });
 
-function quiz(index) {
+function quiz() {
     questionDisplay.textContent = questions[index].question;
     answerDisplay0.textContent = questions[index].answers[0];
     answerDisplay1.textContent = questions[index].answers[1];
@@ -78,31 +78,15 @@ function checkAnswer() {
           secondsRemaining -= 5;
 
         } else {
-          index++;
+            index++, quiz()
+         }
+
+            
           
-        }
-    //    function continueQuestions() {
-    //         if (questions[index] === 0) {
-    //             textContent.questions[1].question
-    //         } else if (questions[index] === 1) {
-    //             textContent.questions[2].question
-    //         } else if (questions[index] === 2) {
-    //             textContent.questions[3].question
-    //         } else if (questions[index] === 3) {
-    //             textContent.questions[4].question
-    //         } else {
-    //             alert ("You won with " + secondsRemaining + " points!");
-    //             window.localStorage.setItem(secondsRemaining)
-    //         }
-    //    }
-    //    continueQuestions();
-            //check if there's a next question.
-            //if yes, 
-                //increase index
-                //then render next question
-        //if no, then endGame
-      });
-    } 
+        })
+   
+      };
+    
    
     
     function endGame() {
