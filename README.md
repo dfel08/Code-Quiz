@@ -18,17 +18,18 @@ The easiest way to install is to accept the terms of service, then install the p
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## Deployed Link
 
-* [See Live Site](https://dfel08.github.io/Code-Refactor/)
+* [See Live Site](https://dfel08.github.io/Code-Quiz/)
 
 
 ## Authors
 
 * **DAN FELLOWS**
 
-- [Link to Portfolio Site](#)
+- [Link to Portfolio Site](https://dfel08.github.io/Responsive-Portfolio/)
 - [Link to Github](https://github.com/dfel08)
 - [Link to LinkedIn](https://www.linkedin.com/in/dan-fellows-ba88a041/)
 
