@@ -8,56 +8,31 @@ var answerDisplay1 = document.querySelector("#answerDisplay1");
 var answerDisplay2 = document.querySelector("#answerDisplay2");
 var answerDisplay3 = document.querySelector("#answerDisplay3");
 var index = 0;
-var secondsRemaining = 25;
+var secondsRemaining = 60;
 var questions = [
     {
         question: "Who is considered the person who started the Romantic movement in art?",
-        answers: {
-            a: "Francisco Goya",
-            b: "Taylor Swift",
-            c: "Johann Sebastion Bach",
-            d: "Ludwig van Beethoven"
-        },
+        answers: ["Francisco Goya", "Taylor Swift", "Johann Sebastion Bach", "Ludwig van Beethoven"],
         correctAnswer: "Ludwig van Beethoven"
     },
     {
         question: "Who is Ash Ketchum's favorite Pokemon?",
-        answers: {
-            a: "Picachoo",
-            b: "Pikachoo",
-            c: "Picachu",
-            d: "Pikachu"
-        },
+        answers: ["Picachoo", "Pikachoo", "Picachu", "Pikachu"],
         correctAnswer: "Pikachu"
     },
     {
         question: "Who invented the toilet?",
-        answers: {
-            a: "John Harington",
-            b: "Ismail al-Jazari",
-            c: "Joseph Bramah",
-            d: "All of the above"
-        },
+        answers: ["John Harington", "Ismail al-Jazari", "Joseph Bramah", "All of the above"],
         correctAnswer: "All of the above"
     },
     {
         question: "Who is Geralt?",
-        answers: {
-            a: "A human",
-            b: "A cow",
-            c: "A fish",
-            d: "A mutant"
-        },
+        answers: ["A human", "A cow", "A fish", "A mutant"],
         correctAnswer: "A mutant"
     },
     {
         question: "Is the world round?",
-        answers: {
-            a: "Airplane windows are curved, so no",
-            b: "Have you been skydiving? Of course it's round",
-            c: "There's an ice wall on the edge of the world, it's flat.",
-            d: "BLASPHEMY!!!",
-        },
+        answers: ["Airplane windows are curved, so no", "Have you been skydiving? Of course it's round", "There's an ice wall on the edge of the world, it's flat.", "BLASPHEMY!!!"],
         correctAnswer: "BLASPHEMY!!!"
         //tehe
     }
@@ -67,7 +42,7 @@ function setTime() {
     var timerInterval = setInterval(function() {
         secondsRemaining--;
         time.textContent = secondsRemaining + " seconds remainging";
-        if (secondsRemaining === 0) {
+        if (secondsRemaining <= 0) {
             clearInterval(timerInterval);
             alert("Nice try")
         }
@@ -81,27 +56,15 @@ start.addEventListener("click", function (event) {
     setTime();
     quiz(index);
 });
-console.log(Object.values(questions[0].answers))
-function quiz(index) {//check
+
+function quiz(index) {
     questionDisplay.textContent = questions[index].question;
-    // var answersArray = [
-        answerDisplay0.textContent = questions[index].answers.a,
-        answerDisplay1.textContent = questions[index].answers.b,
-        answerDisplay2.textContent = questions[index].answers.c,
-        answerDisplay3.textContent = questions[index].answers.d
-    // ];
+    answerDisplay0.textContent = questions[index].answers[0];
+    answerDisplay1.textContent = questions[index].answers[1];
+    answerDisplay2.textContent = questions[index].answers[2];
+    answerDisplay3.textContent = questions[index].answers[3];
     checkAnswer();
-
-    // for (var i = 0; i < answersArray.length; i++) {
-    //     if (i < questions.length) {
-    //         //check
-    //     } else {
-    //         endQuiz()
-    //     }
-    // }
-
-}
-   
+  }
     
 
     
@@ -115,10 +78,25 @@ function checkAnswer() {
           secondsRemaining -= 5;
 
         } else {
-          console.log("correct answer");
+          index++;
           
         }
-       //check if there's a next question.
+    //    function continueQuestions() {
+    //         if (questions[index] === 0) {
+    //             textContent.questions[1].question
+    //         } else if (questions[index] === 1) {
+    //             textContent.questions[2].question
+    //         } else if (questions[index] === 2) {
+    //             textContent.questions[3].question
+    //         } else if (questions[index] === 3) {
+    //             textContent.questions[4].question
+    //         } else {
+    //             alert ("You won with " + secondsRemaining + " points!");
+    //             window.localStorage.setItem(secondsRemaining)
+    //         }
+    //    }
+    //    continueQuestions();
+            //check if there's a next question.
             //if yes, 
                 //increase index
                 //then render next question
@@ -132,14 +110,5 @@ function checkAnswer() {
     //display score
     //use localStorage to keep track of scores
 
-
-// for (var i = 0; i < questions.length; i++) {
-//     function startQuiz() {
-//         $("div").append(questions[i]);
-
-//     }
-//     document.getElementById("start").addEventListener("click", startQuiz);
-// }
-//not working
 
 
