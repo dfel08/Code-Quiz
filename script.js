@@ -9,6 +9,7 @@ var answerDisplay2 = document.querySelector("#answerDisplay2");
 var answerDisplay3 = document.querySelector("#answerDisplay3");
 var index = 0;
 var secondsRemaining = 60;
+var highScore;
 var questions = [
     {
         question: "Who is considered the person who started the Romantic movement in art?",
@@ -90,7 +91,27 @@ function checkAnswer() {
    
     
     function endGame() {
-    }   //enter initials for score 
+        if (index === [5]) {
+            alert("Congrats! You won with " + secondsRemaining + " points!")
+        }
+    } 
+    endGame();
+
+    function storeHigh() {
+        if (highScore != null) {
+           if (secondsLeft > highScore) {
+           var initials = confirm("What are your initials?")
+           var newHighScore = initials + " : " + secondsLeft
+           console.log(initials + " : " + secondsLeft);
+           localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
+           } else {
+           console.log(initials + " : " + secondsLeft)
+           }
+         } else {
+           highscore = initials + " : " + secondsLeft;
+         };
+       
+    //enter initials for score 
     //display score
     //use localStorage to keep track of scores
 
