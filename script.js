@@ -40,7 +40,7 @@ var questions = [
 ]
 
 function setTime() {
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondsRemaining--;
         time.textContent = secondsRemaining + " seconds remainging";
         if (secondsRemaining <= 0) {
@@ -65,53 +65,54 @@ function quiz() {
     answerDisplay2.textContent = questions[index].answers[2];
     answerDisplay3.textContent = questions[index].answers[3];
     checkAnswer();
-  }
-    
+}
 
-    
-    
-    
+
+
+
+
 function checkAnswer() {
-    answersDisplay.addEventListener("click", function () {
+    if (index <= questions.length) {
+        answersDisplay.addEventListener("click", function () {
 
-        var userSelection = event.target;
-        if (userSelection.textContent !== questions[index].correctAnswer) {
-          secondsRemaining -= 5;
+            var userSelection = event.target;
+            if (userSelection.textContent !== questions[index].correctAnswer) {
+                secondsRemaining -= 5;
 
-        } else {
-            index++, quiz()
-         }
+            } else {
+                index++, quiz()
+            }
 
-            
-          
+
+
         })
-   
-      };
-    
-   
-    
-    function endGame() {
-        if (index === [5]) {
-            alert("Congrats! You won with " + secondsRemaining + " points!")
-        }
-    } 
-    endGame();
-
-    function storeHigh() {
-        if (highScore != null) {
-           if (secondsLeft > highScore) {
-           var initials = confirm("What are your initials?")
-           var newHighScore = initials + " : " + secondsLeft
-           console.log(initials + " : " + secondsLeft);
-           localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
-           } else {
-           console.log(initials + " : " + secondsLeft)
-           }
-         } else {
-           highscore = initials + " : " + secondsLeft;
-         };
     }
-    //enter initials for score 
+};
+
+
+
+function endGame() {
+    if (index === [5]) {
+        alert("Congrats! You won with " + secondsRemaining + " points!")
+    }
+}
+endGame();
+
+function storeHigh() {
+    if (highScore != null) {
+        if (secondsLeft > highScore) {
+            var initials = confirm("What are your initials?")
+            var newHighScore = initials + " : " + secondsLeft
+            console.log(initials + " : " + secondsLeft);
+            localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
+        } else {
+            console.log(initials + " : " + secondsLeft)
+        }
+    } else {
+        highscore = initials + " : " + secondsLeft;
+    };
+}
+    //enter initials for score
     //display score
     //use localStorage to keep track of scores
 
