@@ -1,6 +1,6 @@
 # Code-Quiz
 
-Fourth assignment for UC-Berkeley Extension Coding Bootcamp. This is an assignment to create a quiz using JavaScript. This was done in conjunction with Brad and assistance from Ana, Kerwin, and my tutor Jack Sneed.
+Fourth project while at UC-Berkeley Extension Coding Bootcamp. This is an quiz application using primarily JavaScript.
 
 ## Getting Started
 
@@ -43,4 +43,4 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Thanks to my mentor, David Kramer, and my family, who are a continuing source of support and inspiration.
+* Thanks to my mentor, David Kramer, and my family, who are a continuing source of support and inspiration. Also to Brad Davis, Ana Medrano, Kerwin Hy, and Jack Sneed for helping me when I got stuck.
