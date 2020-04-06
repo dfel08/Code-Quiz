@@ -110,7 +110,7 @@ function checkAnswer() {
          } else {
            highscore = initials + " : " + secondsLeft;
          };
-       
+    }
     //enter initials for score 
     //display score
     //use localStorage to keep track of scores
