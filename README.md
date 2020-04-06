@@ -1,6 +1,6 @@
 # Code-Quiz
 
-Fourth project while at UC-Berkeley Extension Coding Bootcamp. This is an quiz application using primarily JavaScript.
+Fourth project while at UC-Berkeley Extension Coding Bootcamp. This is a quiz application using primarily JavaScript.
 
 ## Getting Started
 
