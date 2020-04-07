@@ -55,24 +55,33 @@ start.addEventListener("click", function (event) {
     document.getElementById("start").style.visibility = "hidden";
     document.getElementById("content").style.visibility = "visible";
     setTime();
-    quiz(index);
+    loadQuiz();
 });
 
-function quiz() {
+function loadQuiz() {
+    console.log(index)
+    questionDisplay.textContent = questions[0].question;
+    answerDisplay0.textContent = questions[0].answers[0];
+    answerDisplay1.textContent = questions[0].answers[1];
+    answerDisplay2.textContent = questions[0].answers[2];
+    answerDisplay3.textContent = questions[0].answers[3];
+    contQuiz();
+}
+
+
+//add second function to move forward in quiz
+function contQuiz() {
     questionDisplay.textContent = questions[index].question;
     answerDisplay0.textContent = questions[index].answers[0];
     answerDisplay1.textContent = questions[index].answers[1];
     answerDisplay2.textContent = questions[index].answers[2];
     answerDisplay3.textContent = questions[index].answers[3];
-    checkAnswer();
 }
 
-
-
-
-
+//
 function checkAnswer() {
-    if (index <= questions.length) {
+    console.log(questions.length)
+    if (index < questions.length - 1) {
         answersDisplay.addEventListener("click", function () {
 
             var userSelection = event.target;
@@ -92,7 +101,7 @@ function checkAnswer() {
 
 
 function endGame() {
-    if (index === [5]) {
+    if (index === [4]) {
         alert("Congrats! You won with " + secondsRemaining + " points!")
     }
 }
