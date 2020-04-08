@@ -40,14 +40,25 @@ var questions = [
 ]
 
 function setTime() {
-    var timerInterval = setInterval(function () {
-        secondsRemaining--;
-        time.textContent = secondsRemaining + " seconds remainging";
-        if (secondsRemaining <= 0) {
-            clearInterval(timerInterval);
-            alert("Nice try")
-        }
-    }, 1000);
+    //if the textContent === Blasphemy, set onclick attribute to endGame
+    //stop setInterval, and return secondsRemaining
+    //store secondsRemainging in localStorage
+    if (answerDisplay3.textContent !== "BLASPHEMY!!!") {
+        var timerInterval = setInterval(function () {
+            secondsRemaining--;
+            time.textContent = secondsRemaining + " seconds remaining";
+            if (secondsRemaining <= 0) {
+                clearInterval(timerInterval);
+                alert("Nice try")
+            }
+        }, 1000)
+    } else {
+        answerDisplay3.setAttribute("onclick", "endGame()")
+    }
+}
+
+function endGame() {
+        document.getElementById("endGame-message").textContent="Congrats! You won with " + secondsRemaining + " points!"
 }
 
 start.addEventListener("click", function (event) {
@@ -65,7 +76,6 @@ function loadQuiz() {
     answerDisplay1.textContent = questions[0].answers[1];
     answerDisplay2.textContent = questions[0].answers[2];
     answerDisplay3.textContent = questions[0].answers[3];
-    contQuiz();
 }
 
 
@@ -82,30 +92,16 @@ function contQuiz() {
 function checkAnswer() {
     console.log(questions.length)
     if (index < questions.length - 1) {
-        answersDisplay.addEventListener("click", function () {
-
-            var userSelection = event.target;
-            if (userSelection.textContent !== questions[index].correctAnswer) {
-                secondsRemaining -= 5;
-
-            } else {
-                index++, quiz()
-            }
-
-
-
-        })
+        var userSelection = event.target;
+        console.log(index)
+        if (userSelection.textContent !== questions[index].correctAnswer) {
+            secondsRemaining -= 5;
+        } else {
+            index++, contQuiz()
+        }
     }
 };
 
-
-
-function endGame() {
-    if (index === [4]) {
-        alert("Congrats! You won with " + secondsRemaining + " points!")
-    }
-}
-endGame();
 
 function storeHigh() {
     if (highScore != null) {
