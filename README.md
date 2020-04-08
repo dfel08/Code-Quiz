@@ -35,7 +35,7 @@ The easiest way to install is to accept the terms of service, then install the p
 
 [Contributors]
 
-* **BRAD DAVIS**
+* **NO CONTRIBUTORS**
 
 ## License
 
