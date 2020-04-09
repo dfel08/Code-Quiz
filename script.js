@@ -1,4 +1,4 @@
-var time = document.querySelector(".time");
+var time = document.querySelector("#time");
 var start = document.querySelector("#start");
 var content = document.querySelector("#content");
 var questionDisplay = document.querySelector("#questionDisplay");
@@ -43,22 +43,22 @@ function setTime() {
     //if the textContent === Blasphemy, set onclick attribute to endGame
     //stop setInterval, and return secondsRemaining
     //store secondsRemainging in localStorage
-    if (answerDisplay3.textContent !== "BLASPHEMY!!!") {
-        var timerInterval = setInterval(function () {
-            secondsRemaining--;
-            time.textContent = secondsRemaining + " seconds remaining";
-            if (secondsRemaining <= 0) {
-                clearInterval(timerInterval);
-                alert("Nice try")
-            }
-        }, 1000)
-    } else {
-        answerDisplay3.setAttribute("onclick", "endGame()")
-    }
+    console.log(answerDisplay3.innerText)
+    var timerInterval = setInterval(function () {
+        secondsRemaining--;
+        time.textContent = secondsRemaining + " seconds remaining";
+        if (secondsRemaining <= 0 && time.style.display === "block") {
+            clearInterval(timerInterval);
+            alert("Nice try")
+        }
+    }, 1000)
 }
 
 function endGame() {
-        document.getElementById("endGame-message").textContent="Congrats! You won with " + secondsRemaining + " points!"
+    var endGame = document.getElementById("endGame-message")
+    endGame.textContent = "Congrats! You won with " + secondsRemaining + " points!"
+    time.style.display = "none";
+    storeHigh()
 }
 
 start.addEventListener("click", function (event) {
@@ -86,6 +86,9 @@ function contQuiz() {
     answerDisplay1.textContent = questions[index].answers[1];
     answerDisplay2.textContent = questions[index].answers[2];
     answerDisplay3.textContent = questions[index].answers[3];
+    if (answerDisplay3.textContent === questions[4].answers[3]) {
+        answerDisplay3.setAttribute("onclick", "endGame()")
+    }
 }
 
 //
@@ -102,14 +105,16 @@ function checkAnswer() {
     }
 };
 
-
+//use highScore to equal newHighScore
+//store highScore in localStorage
+//if newHighScore is greater than highScore, store to localStorage
 function storeHigh() {
-    if (highScore != null) {
+    if (highScore === undefined) {
         if (secondsLeft > highScore) {
             var initials = confirm("What are your initials?")
             var newHighScore = initials + " : " + secondsLeft
-            console.log(initials + " : " + secondsLeft);
-            localStorage.setItem("newHighscore", JSON.stringify(newHighScore));
+            console.log(newHighScore);
+            localStorage.setItem("newHighscore", newHighScore);
         } else {
             console.log(initials + " : " + secondsLeft)
         }
